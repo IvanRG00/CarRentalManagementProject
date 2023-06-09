@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CarRentalManagementProject.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace CarRentalManagementProject.Controllers
 {
@@ -46,6 +48,8 @@ namespace CarRentalManagementProject.Controllers
         }
 
         // GET: RentedCars19118070/Create
+
+        [Authorize(Roles = "Admin,Manager")]
         public IActionResult Create()
         {
             ViewData["CarId"] = new SelectList(_context.Cars19118070s, "CarId", "CarId");
@@ -70,7 +74,7 @@ namespace CarRentalManagementProject.Controllers
             ViewData["CustomerId"] = new SelectList(_context.Customers19118070s, "CustomerId", "CustomerId", rentedCars19118070.CustomerId);
             return View(rentedCars19118070);
         }
-
+        [Authorize(Roles = "Admin,Manager")]
         // GET: RentedCars19118070/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -125,7 +129,7 @@ namespace CarRentalManagementProject.Controllers
             ViewData["CustomerId"] = new SelectList(_context.Customers19118070s, "CustomerId", "CustomerId", rentedCars19118070.CustomerId);
             return View(rentedCars19118070);
         }
-
+        [Authorize(Roles = "Admin,Manager")]
         // GET: RentedCars19118070/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

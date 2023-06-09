@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CarRentalManagementProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarRentalManagementProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class Log19118070Controller : Controller
     {
         private readonly CarRentalManagementContext _context;

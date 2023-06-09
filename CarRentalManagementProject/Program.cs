@@ -40,6 +40,11 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+/* Роли за потребителите */
+
+
 using (var scope = app.Services.CreateScope())
 { 
 var roleManager =
@@ -52,24 +57,31 @@ var roleManager =
             await roleManager.CreateAsync(new IdentityRole(role));
     }
 }
+
+
 using (var scope = app.Services.CreateScope())
 {
     var userManager =
             scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-    var roles = new[] { "Admin", "Manager", "Member" };
+
+          string email="Admin@admin.com";  
+          string password = "Parola1@";
+
+    /*       Za manager 
+     *      string email = "Manager@amanager.com";
+            string password = "Parola1@"; */
 
 
-    /* По този начин добавих ролите за админ и мениджър   if (await userManager.FindByEmailAsync(email) == null)
-      {
+    if (await userManager.FindByEmailAsync(email) ==null){
           var user = new ApplicationUser();
           user.UserName = email;
           user.Email = email;
 
           await userManager.CreateAsync(user, password);
-          await userManager.AddToRoleAsync(user, "Member");
-      } */
+          await userManager.AddToRoleAsync(user, "Admin"); /* "Manager" za manager */
+      } 
+        
 }
-
 
 app.MapRazorPages();
 

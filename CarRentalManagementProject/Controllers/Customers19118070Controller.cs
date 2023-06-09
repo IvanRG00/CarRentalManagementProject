@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CarRentalManagementProject.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace CarRentalManagementProject.Controllers
 {
+    [Authorize(Roles = "Admin,Manager")]
     public class Customers19118070Controller : Controller
     {
         private readonly CarRentalManagementContext _context;
@@ -43,7 +46,7 @@ namespace CarRentalManagementProject.Controllers
 
             return View(customers19118070);
         }
-
+        [Authorize(Roles = "Admin,Manager")]
         // GET: Customers19118070/Create
         public IActionResult Create()
         {
@@ -69,6 +72,7 @@ namespace CarRentalManagementProject.Controllers
         }
 
         // GET: Customers19118070/Edit/5
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Customers19118070s == null)
@@ -84,7 +88,7 @@ namespace CarRentalManagementProject.Controllers
             ViewData["RentedCarId"] = new SelectList(_context.Cars19118070s, "CarId", "CarId", customers19118070.RentedCarId);
             return View(customers19118070);
         }
-
+       
         // POST: Customers19118070/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -120,7 +124,7 @@ namespace CarRentalManagementProject.Controllers
             ViewData["RentedCarId"] = new SelectList(_context.Cars19118070s, "CarId", "CarId", customers19118070.RentedCarId);
             return View(customers19118070);
         }
-
+        [Authorize(Roles = "Admin,Manager")]
         // GET: Customers19118070/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

@@ -23,30 +23,52 @@ namespace CarRentalManagementProject.Controllers
         }
 
         // GET: Cars19118070
-        public async Task<IActionResult> Index(string sortOrder,
-            string currentfilter,
-            string searchString,
-            int? pagenumber)
+        public async Task<IActionResult> Index(
+    string sortOrder,
+    string currentFilter,
+    string searchStringMake,
+    string searchStringHorsePower,
+    int? pageNumber)
         {
             ViewData["CurrentSort"] = sortOrder;
-            ViewData["CarMakeSortParam"] = sortOrder == "Car" ? "CarMakeDesc" : "";
+            ViewData["CarMakeSortParam"] = sortOrder == "CarMake" ? "CarMakeDesc" : "CarMake";
             ViewData["CarHorsePowerSortParam"] = sortOrder == "CarHorsePower" ? "CarHorsePowerDesc" : "CarHorsePower";
-            if (searchString != null)
+
+            if (searchStringMake != null)
             {
-                pagenumber = 1;
+                pageNumber = 1;
             }
             else
             {
-                searchString = currentfilter;
+                searchStringMake = currentFilter;
             }
 
-            ViewData["CurrentFilter"] = searchString;
+            if (searchStringHorsePower != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchStringHorsePower = currentFilter;
+            }
+
+            ViewData["CurrentFilterMake"] = searchStringMake;
+            ViewData["CurrentFilterHorsePower"] = searchStringHorsePower;
 
             var cars19118070 = from s in _context.Cars19118070s select s;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(searchStringMake))
             {
-                cars19118070 = cars19118070.Where(s => s.CarMake.Contains(searchString));
+                cars19118070 = cars19118070.Where(s => s.CarMake.Contains(searchStringMake));
+            }
+
+            if (!String.IsNullOrEmpty(searchStringHorsePower))
+            {
+                int horsePower;
+                if (Int32.TryParse(searchStringHorsePower, out horsePower))
+                {
+                    cars19118070 = cars19118070.Where(s => s.CarHorsePower == horsePower);
+                }
             }
 
             switch (sortOrder)
@@ -67,7 +89,7 @@ namespace CarRentalManagementProject.Controllers
 
             int pageSize = 3;
 
-            return View(await PaginatedList<Cars19118070>.CreateAsync(cars19118070.AsNoTracking(), pagenumber ?? 1, pageSize));
+            return View(await PaginatedList<Cars19118070>.CreateAsync(cars19118070.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Cars19118070/Details/5

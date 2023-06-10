@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using CarRentalManagementProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using NuGet.Packaging.Signing;
+
 
 namespace CarRentalManagementProject.Controllers
 {
@@ -21,11 +23,51 @@ namespace CarRentalManagementProject.Controllers
         }
 
         // GET: Cars19118070
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder,
+            string currentfilter,
+            string searchString,
+            int? pagenumber)
         {
-              return _context.Cars19118070s != null ? 
-                          View(await _context.Cars19118070s.ToListAsync()) :
-                          Problem("Entity set 'CarRentalManagementContext.Cars19118070s'  is null.");
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["CarMakeSortParam"] = sortOrder == "Car" ? "CarMakeDesc" : "";
+            ViewData["CarHorsePowerSortParam"] = sortOrder == "CarHorsePower" ? "CarHorsePowerDesc" : "CarHorsePower";
+            if (searchString != null)
+            {
+                pagenumber = 1;
+            }
+            else
+            {
+                searchString = currentfilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var cars19118070 = from s in _context.Cars19118070s select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                cars19118070 = cars19118070.Where(s => s.CarMake.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "CarMakeDesc":
+                    cars19118070 = cars19118070.OrderByDescending(s => s.CarMake);
+                    break;
+                case "CarHorsePower":
+                    cars19118070 = cars19118070.OrderBy(s => s.CarHorsePower);
+                    break;
+                case "CarHorsePowerDesc":
+                    cars19118070 = cars19118070.OrderByDescending(s => s.CarHorsePower);
+                    break;
+                default:
+                    cars19118070 = cars19118070.OrderBy(s => s.CarMake);
+                    break;
+            }
+
+            int pageSize = 3;
+
+            return View(await PaginatedList<Cars19118070>.CreateAsync(cars19118070.AsNoTracking(), pagenumber ?? 1, pageSize));
         }
 
         // GET: Cars19118070/Details/5

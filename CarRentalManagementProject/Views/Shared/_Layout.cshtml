@@ -21,27 +21,27 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home <i class="bi bi-house-door-fill"></i></a>
                         </li>
                          <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cars19118070" asp-action="Index">Cars</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cars19118070" asp-action="Index">Cars <i class="bi bi-car-front"></i></a>
                         </li>
 
                         @if (User.IsInRole("Manager"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Customers19118070" asp-action="Index">Customers</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customers19118070" asp-action="Index">Customers <i class="bi bi-people"></i></a>
                             </li>
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="RentedCars19118070" asp-action="Index">Rented</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="RentedCars19118070" asp-action="Index">Rented <i class="bi bi-calendar4-week"></i></a>
                         </li>
                         
                  
                         @if (User.IsInRole("Manager"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Staff19118070" asp-action="Index">Staff</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Staff19118070" asp-action="Index">Staff <i class="bi bi-people"></i> </a>
                         </li>}
                         
 
@@ -50,16 +50,11 @@
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Log19118070" asp-action="Index">Log</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Log19118070" asp-action="Index">Log <i class="bi bi-activity"></i></a>
                         </li> }
                        
-                        
-                        
-   
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                       
+                      
                     </ul>
                     <partial name="_LoginPartial"/>
                 </div>

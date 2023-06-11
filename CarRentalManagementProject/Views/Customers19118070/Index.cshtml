@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<CarRentalManagementProject.Models.Customers19118070>
-
+<div id=containercustomers19118070>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -55,6 +55,6 @@
                     <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.CustomerId"><i class="bi bi-trash"></i>Delete</a>
             </td>
         </tr>
-}
+        }        @Html.ActionLink("Export to Excel", "ExportToExcel1")
     </tbody>
 </table>

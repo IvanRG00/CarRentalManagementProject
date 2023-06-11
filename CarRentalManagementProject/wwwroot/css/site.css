@@ -64,7 +64,7 @@ body {
 }
 
 
-
+/* Cars */
 
 #containercars19118070 {
     background-color: white;
@@ -93,6 +93,142 @@ body {
 }
 
 #containercars19118070delete {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+/* Customers */
+
+#containercustomers19118070 {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containercustomers19118070create {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containercustomers19118070details {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containercustomers19118070edit {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containercustomers19118070delete {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Rented Cars*/
+
+#containerrentedcars19118070 {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerrentedcars19118070create {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerrentedcars19118070details {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerrentedcars19118070edit {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerrentedcars19118070delete {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/*  Log */
+#containerlog19118070 {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerlog19118070create {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerlog19118070details {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerlog19118070edit {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerlog19118070delete {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+/* Staff */
+#containerstaff19118070 {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerstaff19118070create {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerstaff19118070details {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerstaff19118070edit {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerstaff19118070delete {
     background-color: white;
     border-radius: 20px;
     padding: 20px;

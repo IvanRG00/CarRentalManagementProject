@@ -18,5 +18,82 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background-image: url('../Image/1149843-beach-calpe-camero-car-coast-mountains-mustang.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#containerHome {
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50px;
+    border: 5px solid #ffffff;
+    margin: 20px;
+    padding: 17px;
+    box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+#containerRegisterPage {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerLoginPage {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containerLogoutPage {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+
+
+#containerPrivacy {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+
+
+#containercars19118070 {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containercars19118070create {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containercars19118070details {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containercars19118070edit {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#containercars19118070delete {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
 }

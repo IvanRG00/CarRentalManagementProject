@@ -42,8 +42,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-/* ���� �� ������������� */
-
+/* 
 
 using (var scope = app.Services.CreateScope())
 { 
@@ -67,10 +66,10 @@ using (var scope = app.Services.CreateScope())
           string email="Admin@admin.com";  
           string password = "Parola1@";
 
-    /*      
+        
      *      Manager 
      *      string email = "Manager@amanager.com";
-            string password = "Parola1@"; */
+            string password = "Parola1@"; 
 
 
     if (await userManager.FindByEmailAsync(email) ==null){
@@ -79,10 +78,11 @@ using (var scope = app.Services.CreateScope())
           user.Email = email;
 
           await userManager.CreateAsync(user, password);
-          await userManager.AddToRoleAsync(user, "Admin"); /* "Manager" za manager */
+          await userManager.AddToRoleAsync(user, "Admin");  "Manager" za manager 
       } 
         
 }
+*/
 
 app.MapRazorPages();
 

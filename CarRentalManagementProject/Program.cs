@@ -68,7 +68,7 @@ using (var scope = app.Services.CreateScope())
 
         
      *      Manager 
-     *      string email = "Manager@amanager.com";
+     *      string email = "Manager@manager.com";
             string password = "Parola1@"; 
 
 
